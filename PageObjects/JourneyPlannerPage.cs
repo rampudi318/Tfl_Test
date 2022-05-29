@@ -56,6 +56,7 @@ namespace Tfl_Test.PageObjects
 
             driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
         }
         public void ClickJourneyPlannerlink()
         {
@@ -84,6 +85,7 @@ namespace Tfl_Test.PageObjects
         public void clickCookiesDone()
         {
             Done.Click();
+            new WebDriverWait(driver, TimeSpan.FromSeconds(30)).Until(driver => journeyPlannerLink.Displayed);
         }
         public void SetFromJourneyPlanner(String fromText)
         {
